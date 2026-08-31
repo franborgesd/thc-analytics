@@ -1,6 +1,6 @@
 # thc-analytics
 
-##Overview
+## Overview
 
 The current challenge has the goal of creating a fluid pipeline that cleans and process Orders and Sales data to answer the following business questions:
 
@@ -11,6 +11,8 @@ The current challenge has the goal of creating a fluid pipeline that cleans and 
 5) Segment order into 3 groups: New, Returning & VIP
 6) Create a table that has an additional column with the order segmentation.
 7) Portray the semantic layer for LookML: Model, View and Explore files.
+
+Link to the THC Marketing Dashboard on Data Studio: https://datastudio.google.com/s/tf0Ciqqel6w
 
 ## Setup & Installation
 
