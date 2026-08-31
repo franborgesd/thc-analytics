@@ -1,4 +1,4 @@
-### thc-analytics
+# thc-analytics
 
 ##Overview
 
@@ -14,7 +14,7 @@ The current challenge has the goal of creating a fluid pipeline that cleans and 
 
 ## Setup & Installation
 
-# Prerequisites
+### Prerequisites
 
 The following where used to run the project:
 * **VS Code**: As IDE with the **dbt Power User** extension installed
