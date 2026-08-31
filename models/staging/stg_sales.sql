@@ -1,4 +1,4 @@
--- # Data preparation for orders file that uses the original 'Orders' file as source. Each column is renamed to mantain coherence between tables and data type are redefined so data can be accurately manipulated and transformed in later steps.
+-- # Data preparation for orders file that uses the original 'Sales' file as source. Each column is renamed to mantain coherence between tables and data type are redefined so data can be accurately manipulated and transformed in later steps.
   
 
 SELECT 
