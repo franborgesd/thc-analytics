@@ -36,6 +36,13 @@ The following where used to run the project:
 pip install dbt-bigquery
 ```
 
+## Pipeline Architecture:
+The pipeline follows an ELT architecture structured to automate the operations, be easily reproduced and avoid big operational overhead.
 
+### Core Design Principles
 
+1. **In-Warehouse Transformation (ELT)**: Computations are offloaded to Google BigQuery, utilizing its cloud-native compute capacity rather than transforming data locally.
+2. **Modular dbt DAG**: Data models are structured in incremental layers (Staging → Intermediate → Marts). Dependencies are managed automatically enabling a single `dbt run` execution.
+3. **Idempotent Operations**: Models use declarative SQL targets to ensure running the pipeline multiple times produces consistent, deterministic results without risk of duplicate entries.
+4. **Direct Analytics Consumption**: The finalized reporting marts feed Data Studio directly, delivering pre-aggregated, business-ready datasets that require zero manual joins or custom queries.
 
