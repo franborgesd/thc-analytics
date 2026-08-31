@@ -1,3 +1,4 @@
+# dbt format to recognize where sources are located and called
 sources:
     - name: thc
       database: workshop-adk-francisco-borges
