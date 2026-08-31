@@ -32,9 +32,9 @@ The following where used to run the project:
 '''
 
 - Install dependencies:
-'''bash
+```bash
 pip install dbt-bigquery
-'''
+```
 
 
 
