@@ -36,9 +36,6 @@ The following where used to run the project:
 pip install dbt-bigquery
 '''
 
-- dbt YAML file:
-
-''' bash
 
 
 
