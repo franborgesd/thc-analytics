@@ -1,3 +1,5 @@
+-- Using the intermediate table wich sums the orders in the last 12 months, segnents each order into "New", "Returning" and "Vip" categories.
+
 SELECT
     reference_order,
     customers_id,
