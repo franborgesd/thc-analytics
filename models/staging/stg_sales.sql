@@ -1,3 +1,6 @@
+-- # Data preparation for orders file that uses the original 'Orders' file as source. Each column is renamed to mantain coherence between tables and data type are redefined so data can be accurately manipulated and transformed in later steps.
+  
+
 SELECT 
     PARSE_DATE('%Y-%m-%d', date_date) AS date,
     SAFE_CAST (customer_id AS INT64) AS customers_id,
