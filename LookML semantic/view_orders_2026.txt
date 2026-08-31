@@ -1,0 +1,26 @@
+view: orders_2026 { 
+sql_table_name: 'workshop-adk-francisco-borges.THC.orders_2026' ;;
+
+dimension: orders_id {
+	primary_key: yes
+	hidden: yes
+	type: number
+	sql: ${TABLE}.orders_id ;;
+}
+
+
+dimension_group: order_date {
+	type: time
+	timeframes: [raw, date, month, year]
+	timeframe_group_label: "Order Date"
+	sql: ${TABLE}.date ;;
+}
+
+measure: total_orders {
+	label: "Total Orders"
+	type: count_distinct
+	sql: ${TABLE}.orders_id ;;
+}
+
+
+

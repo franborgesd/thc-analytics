@@ -1,0 +1,33 @@
+view: avg_products_monthly {
+  sql_table_name: `workshop-adk-francisco-borges.THC.avg_products_monthly_2026` ;;
+
+
+  dimension: order_id {
+    primary_key: yes
+    hidden: yes
+    type: string
+    sql: ${TABLE}.order_id ;;
+  }
+
+  
+  dimension_group: order {
+    type: time
+    timeframes: [raw, date, month, year]
+    timeframe_group_label: "Order Date"
+    sql: ${TABLE}.date ;;
+  }
+
+  
+  dimension: qty_product {
+    type: number
+    hidden: yes
+    sql: ${TABLE}.qty_product ;;
+  }
+
+   measure: avg_products_per_order {
+    label: "Average Products Per Order"
+    type: average
+    sql: ${qty_product} ;;
+    value_format_name: decimal_2
+  }
+}

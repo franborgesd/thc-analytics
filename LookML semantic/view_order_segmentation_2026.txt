@@ -1,0 +1,58 @@
+view: marts_segmentation {
+  sql_table_name: `workshop-adk-francisco-borges.THC.marts_segmentation` ;;
+
+ 
+  dimension: reference_order {
+    primary_key: yes
+    type: string
+    sql: ${TABLE}.reference_order ;;
+  }
+
+  dimension: customers_id {
+    type: string
+    sql: ${TABLE}.customers_id ;;
+  }
+
+  dimension_group: reference {
+    type: time
+    timeframes: [raw, date, month, year]
+    timeframe_group_label: "Reference Date"
+    sql: ${TABLE}.reference_date ;;
+  }
+
+  dimension: previous_order {
+    type: string
+    hidden: yes
+    sql: ${TABLE}.previous_order ;;
+  }
+
+
+  dimension: order_segmentation {
+    label: "Order Segmentation"
+    type: string
+    sql: 
+      CASE
+        WHEN ${TABLE}.previous_order IS NULL OR ${TABLE}.previous_order = '0' THEN 'New'
+        WHEN CAST(${TABLE}.previous_order AS INT64) BETWEEN 1 AND 3 THEN 'Returning'
+        ELSE 'VIP'
+      END ;;
+  }
+
+
+  measure: order_count_12months {
+    label: "Order Count (12 Months)"
+    type: count
+    sql: ${previous_order} ;;
+  }
+
+
+  set: detail_fields {
+    fields: [
+      reference_order,
+      customers_id,
+      reference_date,
+      order_segmentation,
+      order_count_12months
+    ]
+  }
+}
