@@ -1,0 +1,7 @@
+sources:
+    - name: thc
+      database: workshop-adk-francisco-borges
+      schema: THC
+      tables:
+        - name: Orders
+        - name: Sales
