@@ -1,0 +1,27 @@
+connection: "thc_bq_connection"
+include: "/views/*.view.lkml"
+datagroup: default_datagroup {
+  max_cache_age: "24 hours"
+}
+
+persist_with: default_datagroup
+
+explore: orders_2026 {
+  label: "Orders & Customer Segmentation Analysis"
+  description: "Primary explore for analyzing orders, monthly averages, and customer 12-month segmentation."
+
+  
+  join: orders_segmentation_2026 {
+    type: left_outer
+    relationship: many_to_one
+    sql_on: ${orders_2026.customers_id} = ${orders_segmentation_2026.customers_id} 
+       AND ${orders_2026.orders_id} = ${orders_segmentation_2026.reference_order} ;;
+  }
+
+ 
+  join: avg_prods_monthly_2026 {
+    type: left_outer
+    relationship: many_to_one
+    sql_on: ${orders_2026.order_date_date} = ${avg_prods_monthly_2026.order_date_date} ;;
+  }
+}
